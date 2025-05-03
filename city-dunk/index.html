@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>City Dunk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+<meta name="generator" content="Construct 3">
+	<link rel="manifest" href="appmanifest.json">
+<link rel="stylesheet" href="style.css">
+
+<script>
+    window.famobi_gameID = "city-dunk";
+    window.famobi_gameJS = [
+        "common.js",
+        "tresor.js",
+        "box2d.wasm.js",
+        "scripts/supportcheck.js",
+        "scripts/offlineclient.js",
+        "scripts/main.js",
+        "scripts/register-sw.js",
+        function(){
+            // do nothing, be happy
+        }
+    ];
+
+    (function (document, url, fgJS, firstJS) {
+            fgJS = document.createElement('script');
+            firstJS = document.getElementsByTagName('script')[0];
+            fgJS.src = url + encodeURIComponent(document.location.href);
+            firstJS.parentNode.insertBefore(fgJS, firstJS);
+    })(document, '/html5games/gameapi/v1.js?e=');
+</script>
+
+</head>
+<body>
+<div id="fb-root"></div>
+	<noscript>
+		<div id="notSupportedWrap">
+			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
+			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+		</div>
+	</noscript>
+</body>
+</html>
