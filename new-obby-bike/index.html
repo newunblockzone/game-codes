@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Obby on a Bike</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: url('Build.jpg') center no-repeat;
+            background-size: cover;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+    </style>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script type="text/javascript">
+        !function(){window.tcfReady=!1,window.tcfReadyProxy={tcfReady:!1};var t,a=window,o={},e=0;!function o(){for(;a;){try{if(a.frames.__tcfapiLocator){t=a;break}}catch(t){}if(a===window.top)break;a=a.parent}if(!t&&window!==window.top){if(a=window,++e<10)return setTimeout(o,50),void console.log("__tcfapiLocator frame not found, trying again...");console.log("__tcfapiLocator frame check timeout")}window.tcfReadyProxy.tcfReady=window.tcfReady=!0}(),window.__tcfapi=function(a,e,n,c){if(t){var i=Math.random()+"",d={__tcfapiCall:{command:a,parameter:c,version:e,callId:i}};o[i]=n,t.postMessage(d,"*")}else n({msg:"CMP not found",eventStatus:"cmpNotFound",cmpLoaded:!1},!1)},window.addEventListener("message",(function(t){var a={};try{a="string"==typeof t.data?JSON.parse(t.data):t.data}catch(t){}var e=a.__tcfapiReturn;e&&"function"==typeof o[e.callId]&&o[e.callId](e.returnValue,e.success)}),!1)}();
+    </script>
+</head>
+<body class="dark">
+    <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas"></canvas>
+    </div>
+    <div id="loading-cover" style="display:none;">
+        <div id="unity-loading-bar">
+            <div id="unity-logo">Obby on a Bike</div>
+            <div id="unity-progress-bar-empty" style="display: none;">
+                <div id="unity-progress-bar-full"></div>
+            </div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+    <script>
+      const hideFullScreenButton = "";
+      const buildUrl = "Build";
+      const loaderUrl = buildUrl + "/9853637125e801e9aae48e78dbbdcfca.loader.js";
+      const config = {
+          dataUrl: buildUrl + "/ae84e514e78bbd611169d71bf0c60fd4.data.unityweb",
+          frameworkUrl: buildUrl + "/31420355adc01750113aad722c70bfe1.framework.js.unityweb",
+          codeUrl: buildUrl + "/4a7f8881465afe47e95a32c3953b71dd.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Cursora Labs OÜ",
+        productName: "Obby on a Bike",
+        productVersion: "0.1",
+        devicePixelRatio: 1.5,
+        webglContextAttributes: {
+          preserveDrawingBuffer: true,
+          powerPreference: "high-performance",
+        },
+      };
+
+      const container = document.querySelector("#unity-container");
+      const canvas = document.querySelector("#unity-canvas");
+      const loadingCover = document.querySelector("#loading-cover");
+      const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+      const progressBarFull = document.querySelector("#unity-progress-bar-full");
+      const spinner = document.querySelector('.spinner');
+
+      const canFullscreen = (function() {
+        for (const key of [
+            'exitFullscreen',
+            'webkitExitFullscreen',
+            'webkitCancelFullScreen',
+            'mozCancelFullScreen',
+            'msExitFullscreen',
+          ]) {
+          if (key in document) {
+            return true;
+          }
+        }
+        return false;
+        }());
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            container.className = "unity-mobile";
+        } else {
+            
+        }
+
+      loadingCover.style.display = "";
+
+      // Explicitly setting the background image using JavaScript
+      document.body.style.backgroundImage = "url('Build.jpg')";
+      document.body.style.backgroundPosition = "center";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundSize = "cover";
+
+      var myGameInstance = null;
+
+      const script = document.createElement("script");
+      script.src = loaderUrl;
+
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          spinner.style.display = "none";
+          progressBarEmpty.style.display = "";
+          progressBarFull.style.width = `${100 * progress}%`;
+        }).then((unityInstance) => {
+          myGameInstance = unityInstance;
+          loadingCover.style.display = "none";
+          // Now that Unity is fully loaded, it's safe to interact with it
+          //checkDevice(); // Ensure this function is called here
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+
+      document.body.appendChild(script);
+    </script>
+    <script type="text/javascript" src="js/rhmApi.js"></script>
+</body>
+</html>
