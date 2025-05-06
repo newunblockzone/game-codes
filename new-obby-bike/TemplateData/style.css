@@ -1,0 +1,102 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html, body {
+    height: 100%;
+}
+canvas {
+    display: block;
+}
+body {
+    margin: 0;
+}
+#unity-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#unity-canvas {
+    width: 100%;
+    height: 100%;
+}
+#loading-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#unity-loading-bar {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+#unity-logo {
+    text-align: center;
+    font-size: 24px;
+    margin: 10px 0;
+    color: #fff;
+}
+#unity-logo img {
+    max-width: 350px;
+}
+#unity-progress-bar-empty {
+    width: 100%;
+    max-width: 350px;
+    height: 14px;
+    margin: 10px 20px 20px;
+    text-align: left;
+    background-color: rgba(255,255,255,.15);
+    border-radius: 7px;
+}
+#unity-progress-bar-full {
+    width: 0;
+    height: 100%;
+    background: rgba(255,255,255,.4);
+    border-radius: 7px;
+}
+.light #unity-progress-bar-empty {
+    border-color: black;
+}
+.light #unity-progress-bar-full {
+    background: black;
+}
+
+.spinner,
+.spinner:after {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+}
+.spinner {
+    margin: 10px;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+    border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+    border-left: 1.1em solid #ffffff;
+    transform: translateZ(0);
+    animation: spinner-spin 1.1s infinite linear;
+}
+@keyframes spinner-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
