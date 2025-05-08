@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Going Balls</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script>
+    function FitScreen()
+    {
+      // if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+      // {
+      //   return;
+      // }
+
+      var canvas = document.getElementById("unity-canvas");
+
+      var width = window.innerWidth;
+      var height = window.innerHeight - 10;
+
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+    }
+  </script>
+</head>
+<body onfocus="FitScreen();" onload="FitScreen();" onresize="FitScreen();">
+<div id="unity-container" class="unity-desktop">
+  <canvas id="unity-canvas"></canvas>
+  <div id="unity-loading-bar">
+    <div id="unity-logo"></div>
+    <div id="unity-progress-bar-empty">
+      <div id="unity-progress-bar-full"></div>
+    </div>
+  </div>
+  <div id="unity-fullscreen-button"></div>
+</div>
+<script>
+  var container = document.querySelector("#unity-container");
+  var canvas = document.querySelector("#unity-canvas");
+  var loadingBar = document.querySelector("#unity-loading-bar");
+  var progressBarFull = document.querySelector("#unity-progress-bar-full");
+  var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+
+  fullscreenButton.style.display = "none";
+
+  var buildUrl = "Build";
+  var loaderUrl = buildUrl + "/Build_Fullscreen_2.loader.js";
+  var config = {
+    dataUrl: buildUrl + "/Build_Fullscreen_2.data",
+    frameworkUrl: buildUrl + "/Build_Fullscreen_2.framework.js",
+    codeUrl: buildUrl + "/Build_Fullscreen_2.wasm",
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "DEFU Games",
+  productName: "Going Balls",
+  productVersion: "0.1"
+  };
+
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+  {
+    // Mobile device style: fill the whole browser client area with the game canvas:
+
+    var meta = document.createElement('meta');
+    meta.name = 'viewport';
+    meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+    document.getElementsByTagName('head')[0].appendChild(meta);
+    container.className = "unity-mobile";
+
+    // To lower canvas resolution on mobile devices to gain some
+    // performance, uncomment the following line:
+    // config.devicePixelRatio = 1;
+
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+
+    document.addEventListener("gesturestart", function (e)
+    {
+      e.preventDefault();
+    });
+
+    document.addEventListener("gesturechange", function (e)
+    {
+      e.preventDefault();
+    });
+    document.addEventListener("gestureend", function (e)
+    {
+      e.preventDefault();
+    });
+  }
+  else
+  {
+    canvas.style.width = "99vw";
+    canvas.style.height = "99vh";
+  }
+
+
+  var script = document.createElement("script");
+  script.src = loaderUrl;
+  script.onload = () => {
+    createUnityInstance(canvas, config, (progress) => {
+      progressBarFull.style.width = 100 * progress + "%";
+    }).then((unityInstance) => {
+      loadingBar.style.display = "none";
+      fullscreenButton.style.display = 'block';
+      fullscreenButton.onclick = () => {
+        if (document.fullscreenElement || document.webkitIsFullScreen || document.mozFullScreen)
+        {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+          } else if (document.webkitCancelFullScreen) { /* Safari? */
+            document.webkitCancelFullScreen();
+          } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+          }
+        }
+        else {
+          if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+          } else if (document.documentElement.webkitRequestFullscreen) { /* Safari */
+            document.documentElement.webkitRequestFullscreen();
+          } else if (document.documentElement.msRequestFullscreen) { /* IE11 */
+            document.documentElement.msRequestFullscreen();
+          }
+        }
+      };
+    }).catch((message) => {
+      alert(message);
+    });
+  };
+  document.body.appendChild(script);
+</script>
+</body>
+</html>
