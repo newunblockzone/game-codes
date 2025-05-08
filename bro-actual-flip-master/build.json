@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 536870912,
+"dataUrl": "flipmaster.data.unityweb",
+"asmCodeUrl": "flipmaster.asm.code.unityweb",
+"asmMemoryUrl": "flipmaster.asm.memory.unityweb",
+"asmFrameworkUrl": "flipmaster.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}
