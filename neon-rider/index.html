@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<link rel="stylesheet" href="resources/css/style.css" type="text/css">
+
+<script>
+var Trigger_DisableFireBAse  = false;
+function se_savePref(){}; 
+
+  window.famobi_gameID = "neon-rider";
+  window.famobi_gameJS = [ 
+    'js/libs/gl-matrix-min.js',
+    'js/libs/zip-full.min.js',
+    'js/libs/p2.min.js',
+    'js/compressed.js',
+    function() {
+
+      // Pause and resume on page becoming visible/invisible
+      function onVisibilityChanged() {
+        if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden) {
+          f135(); // mute
+          GameIsBlured = true;
+          f206();
+          if (H5_H5app_IsH5 == true) Integration_SoundChanged = true;
+        } else {
+          if(PREF_Music === 1) {
+            f95(); // unmute
+          }
+          GameIsBlured = false;
+          if (H5_H5app_IsH5 == true) Integration_SoundChanged = true;
+        }
+      };
+
+      document.addEventListener("visibilitychange", onVisibilityChanged, false);
+      document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
+      document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
+      document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
+
+      se_start('MyCanvasID','FAMOBI'); }
+  ];
+
+  (function (document, url, fgJS, firstJS) {
+    fgJS = document.createElement('script');
+    firstJS = document.getElementsByTagName('script')[0];
+    fgJS.src = url;
+    firstJS.parentNode.insertBefore(fgJS, firstJS);
+  })
+  (document, 'html5games/gameapi/v1.js');
+
+  
+</script>
+</head>
+
+<body> <canvas id="MyCanvasID"></canvas> </body>
+</html>

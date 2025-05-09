@@ -1,0 +1,4 @@
+{
+	"features": { "highscore": 1, "rewarded": 1 },
+	"game_info": { "client_version": "0.385.0", "api_version": "2.1", "orientation": {  "phone": { "portrait": "green", "landscape": "green" }, "tablet": { "portrait": "green", "landscape": "green"} }}
+}
