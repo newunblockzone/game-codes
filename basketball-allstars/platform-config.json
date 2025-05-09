@@ -1,0 +1,19 @@
+{
+  "platform": "msstart",
+  "gameSlug": "basketball-all-stars",
+  "gameBuild": "1.2.6",
+  "gameTitle": "Basketball All Stars",
+  "interface": "sgSdk",
+  "leaderboardSupport": true,
+  "inAppPurchase": false,
+  "addShortcut": true,
+  "adsConfig": {
+    "adFreeInitialLevels": 0,
+    "interstitialCooldownLevel": 0,
+    "longGameplayCooldownMS": 150000,
+    "enableLongGameplayAds": false,
+    "rewarded": true,
+    "supportsAdPlayButton": false
+  },
+  "gameID": "9NDKP76S2H24"
+}

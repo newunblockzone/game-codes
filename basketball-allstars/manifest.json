@@ -1,0 +1,39 @@
+{
+  "ms_start_compatible": true,
+  "background_color": "#ffffff",
+  "description": "",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Basketball All Stars",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "Basketball All Stars",
+  "start_url": "https://softgames.cdn.start.gg/9ndkp76s2h24/v24/index.html",
+  "theme_color": "#ffffff",
+  "categories": [
+    "games"
+  ],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "https://softgames.cdn.start.gg/9ndkp76s2h24/v24/Icon_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "https://softgames.cdn.start.gg/9ndkp76s2h24/v24/Icon_1920x1080.png",
+      "type": "image/png",
+      "sizes": "1920x1080"
+    }
+  ],
+  "shortcuts": [],
+  "lang": "en",
+  "_msstart": {
+    "leaderboards": {
+      "default": {
+        "score_type": "Numeric",
+        "score_order_by": "Desc"
+      }
+    }
+  }
+}
