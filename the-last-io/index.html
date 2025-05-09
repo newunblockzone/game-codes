@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="application-name" content="thelast.io">
+    <meta name="description" content="Play games like Fortnite, PUBG, Apex Legends or Spellbreak? Play Thelast.io in your browser, a free 2D medieval fantasy battle royale io game!">
+    <meta property="og:description" content="Play games like Fortnite, PUBG, Apex Legends or Spellbreak? Play Thelast.io in your browser, a free 2D medieval fantasy battle royale io game!">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Thelast.io">
+    <meta property="og:url" content="https://thelast.io/">
+    <meta property="og:site_name" content="thelast.io">
+    <meta property="og:image" content="https://thelast.io/titleLogo.png">
+    <meta name="keywords" content="io, battle royale, io games, io game, thelastio, thelast, free, shooter, fortnite, pubg, apex, spellbreak, 2d battle royale, battle royale io, royale games, battle royale io game, battle royale io games, royale io, fighting games online, the last">
+    <meta name="google-site-verification" content="OePAcmBzHkHXKtYjyAFppoMJnYuUoL0wd8hcv54uvdk" />
+    <link rel="canonical" href="https://thelast.io" />
+
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <title>Thelast.io - 2D Fantasy Battle Royale IO Game</title>
+    <script>
+      if (window.location.hostname == "wordsreview.com") {
+        window.document.title = "Improve your grammar by reviewing your sentences with wordsreview!";
+
+        let favicon = document.querySelector('link[rel="shortcut icon"]')
+	if (favicon !== null) {
+          favicon.remove();
+        }
+      }
+    </script>
+
+    <script>
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location = '/mobile.html';
+	}
+    </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136600272-1"></script>
+    <script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-136600272-1');
+    </script>
+
+		<!-- Google Analytics -->
+    <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-136600272-1', 'auto');
+	ga('send', 'pageview');
+    </script>
+	<!-- End Google Analytics -->
+        <script src="https://accounts.google.com/gsi/client" onload="initGoogleAuth()" async defer></script>
+    <script>
+		var GoogleAuth;
+	
+		function initGoogleAuth(){
+          GoogleAuth = google.accounts.oauth2.initTokenClient({
+					  client_id: "623720683972-9r6nln3jo303dn8hp9378tfhvrmcm7l9.apps.googleusercontent.com",
+					  scope: "profile email",
+					  prompt: "select_account"
+			});
+		}
+    </script>
+<script>
+  var crazysdk = "";
+  var crazyGamesCallbacks;
+
+  function loadCrazyGamesSdk() {
+    let script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://sdk.crazygames.com/crazygames-sdk-v3.js';
+    let s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(script, s);
+
+    script.onload = function() {
+      crazysdk = window.CrazyGames.SDK;
+      crazysdk.init();
+
+	  crazyGamesCallbacks = {
+		adFinished: () => {
+			console.log("End rewarded ad");
+			videoAdsWatchedOnce = true;
+			gameInstance.SendMessage('PlayerUIManager', 'AdPrerollCompletion');
+		},
+		adError: (error) => {
+			console.log("Error rewarded ad", error);
+			
+			if (error.code == "unfilled") {
+				gameInstance.SendMessage('PlayerUIManager', 'AdPrerollCompletion');
+				console.log("No available video ad")
+			}
+		},
+		adStarted: () => console.log("Start rewarded ad"),
+	  };
+
+
+      //crazysdk.addEventListener('bannerRendered', (event) => {
+      //  console.log(`Banner for container ${event.containerId} has been
+      //  rendered!`);
+      //});
+
+      //crazysdk.addEventListener('bannerError', (event) => {
+      //  console.log(`Banner render error: ${event.error}`);
+      //});
+	  
+      console.log("CrazyGames SDK has been initialized");
+    };
+  }
+
+  function loadAdinPlaySdk() {
+    var aiptag = aiptag || {};
+	aiptag.cmd = aiptag.cmd || [];
+	aiptag.cmd.display = aiptag.cmd.display || [];
+	aiptag.cmd.player = aiptag.cmd.player || [];
+
+	aiptag.cmp = {
+	  show: true,
+	  position: "centered",  
+	  button: true,
+	  buttonText: "Privacy settings",
+	  buttonPosition: "bottom-left"
+	}
+
+	aiptag.gdprShowConsentTool = true;
+
+    let po = document.createElement('script');
+    po.type = 'text/javascript';
+    po.async = true;
+    po.src = '//api.adinplay.com/libs/aiptag/pub/LST/thelast.io/tag.min.js';
+    let s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+  }
+
+var urls = [
+    ['crazygames.com/', 1, 2],
+    ['1001juegos.com/', 1, 2],
+    ['speelspelletjes.nl/', 1, 2],
+    ['onlinegame.co.id/', 1, 3]
+];
+
+var adsSdkId = 0;
+
+for (let i = 0; i < urls.length; i += 1) {
+    if(typeof document.referrer !== 'undefined' && document.referrer) {
+      let delimiter = '.';
+      let croppedUrl = document.referrer.split(delimiter);
+      let start = croppedUrl.length - urls[i][2];
+      let croppedHost = document.referrer.split(delimiter).slice(start);
+      let filteredHostname = croppedHost.join(delimiter);
+
+      if (urls[i][0].search(filteredHostname) > -1) {
+	if(urls[i][1] == 1) {
+          loadCrazyGamesSdk();
+	  adsSdkId = urls[i][1];
+	  break;
+        }
+      }
+    }
+}
+
+if(adsSdkId == 0) {
+   loadAdinPlaySdk();
+}
+  </script>
+
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+        background: #444;
+	overflow: hidden;
+	height: 100%;
+      }
+      #gameContainer {
+        width: 100vw;
+        height: 100vh;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      canvas + * {
+        z-index: 2;
+      }
+      .backgroundImage {
+          display: block;
+          max-width: 100vw;
+          max-height: 70vh;
+      }
+      #loader {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+		background-image: url("loadingScreen.png");
+		background-size: cover;
+		background-position: center center;
+      }
+      .spinner,
+      .spinner:after {
+        border-radius: 50%;
+        width: 5em;
+        height: 5em;
+      }
+      .spinner {
+        margin: 10px;
+        font-size: 10px;
+        position: relative;
+        text-indent: -9999em;
+        border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-left: 1.1em solid #ffffff;
+        transform: translateZ(0);
+        animation: spinner-spin 1.1s infinite linear;
+      }
+      @keyframes spinner-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+	  #loadNumberProgress {
+	  font-size: 40px;
+	  font-family: Comic Sans MS;
+	  color: rgb(212, 170, 0);
+	  text-shadow: 1.5px 1.5px rgb(51, 51, 51), -1.5px -1.5px rgb(51, 51, 51), 1.5px -1.5px rgb(51, 51, 51), -1.5px 1.5px rgb(51, 51, 51);
+	  position: relative;
+	  top: calc(38vh - 4.5vw);
+	  left: 0.8vw;
+      font-size: calc(26px + 1.5vw);
+	  }
+
+	  #loadProgress {
+	  text-align: center;
+	  }
+
+	  #ads-banner-custom-01{
+	  visibility: hidden;
+	  background-color: rgba(0, 0, 0, 0);
+	  height: 610px;
+	  width: 35vh;
+	  position: absolute;
+	  top: 50%;
+	  left: calc(50% - 60vh);
+	  -webkit-transform-origin: center left;
+	  -moz-transform-origin: center left;
+	  -ms-transform-origin: center left;
+	  transform-origin: center left;
+	  transform: translateY(-50%);
+	  pointer-events: none;
+	  }
+
+	  #ads-banner-custom-02{
+	  visibility: hidden;
+	  background-color: rgba(0, 0, 0, 0);
+	  height: 610px;
+	  width: 35vh;
+	  position: absolute;
+	  top: 50%;
+	  right: calc(50% - 61vh);
+	  -webkit-transform-origin: center right;
+	  -moz-transform-origin: center right;
+	  -ms-transform-origin: center right;
+	  transform-origin: center right;
+	  transform: translateY(-50%);
+	  pointer-events: none;
+
+	  }
+
+	  #ads-banner-custom-03{
+	    background-color: rgba(0, 0, 0, 0);
+	    height: 35vh;
+	    width: 35vh;
+	    position: absolute;
+	    bottom: 50%;
+	    right: calc(50% - 55vh);
+	  -webkit-transform-origin: top left;
+	  -moz-transform-origin: top left;
+	  -ms-transform-origin: top left;
+	    transform-origin: top left;
+	   pointer-events: none;
+
+	  }	
+
+	  #ads-banner-custom-04{
+	    background-color: rgba(0, 0, 0, 0);
+	    position: absolute;
+	    left: 41%;
+	    margin: 0px -300px 0px;
+	  -webkit-transform-origin: top center;
+	  -moz-transform-origin: top center;
+	  -ms-transform-origin: top center;
+	    transform-origin: top center;
+	   pointer-events: none;
+	   top: 58%;
+	  }
+
+	#thelast-io_300x250, #thelast-io_300x600{
+	    float: right;
+	    display: flex;
+	    height: 600px;
+       	    align-items: center
+	  }
+
+	#thelast-io_300x250_2{
+	    display: flex;
+	    height: 600px;
+       	    align-items: center
+	  }
+
+	#thelast-io_300x250_3{
+	    float: left;
+	  }
+
+	#thelast-io_300x250, #thelast-io_300x250_2, #thelast-io_300x250_3, #thelast-io_728x90, #thelast-io_970x250, #thelast-io_300x600{
+	    pointer-events: all;
+	  }
+
+	  #ads-video-custom{
+	  bottom: 50%;
+	  left: 50%;
+	  position: absolute;
+	  margin: 0 0 -270px -480px;
+	  }
+
+	@media (min-height: 700px) and (max-width: 1400px) {
+		#ads-banner-custom-03 {
+		right: calc(50% - 52vh);
+		}
+	}
+
+	@media (max-width: 1279px) { 
+		#ads-banner-custom-04 {
+		right: 70%;
+		}
+	}
+
+	@media (max-width: 1200px), (max-height: 600px) { 
+		#ads-banner-custom-03, #ads-banner-custom-04 {
+		-webkit-transform:scale(0.75);
+		-moz-transform:scale(0.75);
+		-ms-transform:scale(0.75);
+		transform: scale(0.75);
+		}
+	}
+
+	@media (max-width: 999px) { 
+		#ads-banner-custom-03 {
+		-webkit-transform:scale(0.65);
+		-moz-transform:scale(0.65);
+		-ms-transform:scale(0.65);
+		transform: scale(0.65);
+		}
+	}
+
+	@media (max-width: 1649px) { 
+		#ads-banner-custom-03 {
+		visibility: hidden !important;
+		}
+	}
+
+	@media (max-width: 899px) { 
+		#ads-banner-custom-03 {
+		visibility: hidden !important;
+		}
+	}
+
+	@media (max-width: 799px) { 
+		#ads-banner-custom-04 {
+		visibility: hidden !important;
+		}
+	}
+
+    	@media (max-width: 999px) { 
+		#ads-banner-custom-01 {
+		top: 50%;
+		left: 0;
+		height: 610px;
+		width: 310px;
+		position: absolute;
+		-webkit-transform-origin: center left;
+		-moz-transform-origin: center left;
+		-ms-transform-origin: center left;
+		transform-origin: center left;
+		-webkit-transform:scale(0.8);
+		-moz-transform:scale(0.8);
+		-ms-transform:scale(0.8);
+		transform: translateY(-50%) scale(0.8);
+		}
+	}
+    	@media (max-width: 999px) { 
+		#ads-banner-custom-02 {
+		top: 50%;
+		right: 0;
+		height: 610px;
+		width: 310px;
+		position: absolute;
+		-webkit-transform-origin: center right;
+		-moz-transform-origin: center right;
+		-ms-transform-origin: center right;
+		transform-origin: center right;
+		-webkit-transform:scale(0.8);
+		-moz-transform:scale(0.8);
+		-ms-transform:scale(0.8);
+		transform: translateY(-50%) scale(0.8);
+		}
+	}
+
+    </style>
+  </head>
+
+  <body id="thelastio-body">
+    <h1 style="display: none;">2D Fantasy Battle Royale IO Game</h1>
+    <div id="gameContainer" class="unity-desktop">
+		<canvas id="unity-canvas"></canvas>
+	</div>
+    <div id="loader">
+	<div id="loadProgress">
+	  <label id="loadNumberProgress">0</label>
+	</div>
+      <div class="spinner"></div>
+    </div>
+
+	<div id="ads-banner-custom-01"> 
+		<div id='thelast-io_300x600'>
+		</div>
+	</div>
+
+    <div id="ads-banner-custom-02">
+		<div id='thelast-io_300x250_2'>
+		</div>
+	</div>
+
+    <div id="ads-banner-custom-03">
+		<div id='thelast-io_300x250_3'>
+		</div>
+    </div>
+
+    <div id="ads-banner-custom-04">
+		<div id='thelast-io_970x250'>
+		</div>
+    </div>
+
+	<div id="ads-video-custom">
+		<div id="preroll"></div>
+	</div>
+
+  </body>
+  <script src="js/utils.js"></script>
+  <script>
+   window.adsTest = false;
+
+    var isHTTP;
+
+  if (location.protocol != 'https:')
+		{
+			isHTTP = true;
+		}
+  else
+		{
+			isHTTP = false;
+		}
+
+    var buildDir = isHTTP ? "Build" : "BuildS";		
+
+  </script>
+  <script>
+  var container = document.querySelector("#gameContainer");
+  var canvas = document.querySelector("#unity-canvas");
+
+  var gameInstance;
+
+  let filesVersion = "?v=0420b";
+
+  var loaderUrl = buildDir + "/WebGLBuild.loader.js" + filesVersion;
+  var config = {
+    dataUrl: buildDir + "/WebGLBuild.data.br" + filesVersion,
+    frameworkUrl: buildDir + "/WebGLBuild.framework.js.br" + filesVersion,
+    codeUrl: buildDir + "/WebGLBuild.wasm.br" + filesVersion,
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "Thelast Studio",
+    productName: "Thelast.io",
+    productVersion: "1.12.0",
+
+    cachedDecompressedFileSizes: {
+                'WebGLBuild.framework.js.br': 550655,
+                'WebGLBuild.data.br': 14999938,
+                'WebGLBuild.wasm.br': 23828632,
+            },
+  };
+
+  var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          var progressNumber = Math.round(progress * 100);
+		  document.getElementById("loadNumberProgress").textContent = (progressNumber >= 100 ? 99 : progressNumber) + "%";
+
+	  //console.log('Progress: ' + progress);	
+        }).then((unityInstance) => {
+		  gameInstance = unityInstance;
+
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+
+  var videoAdsWatchedOnce = true;
+  var webGLSupportVerified = false;
+  var isWebGLSupported = isWebGLSupported();
+
+  // 1 = Crazygames
+  if(adsSdkId == 1) {
+   document.getElementById("ads-banner-custom-04").style.left="50%";
+  }
+
+
+  window.alert = function() {}.bind(console.alert);
+
+  window.onbeforeunload = function (e) {
+    e = e || window.event;
+    if (e) {
+		e.returnValue = 'Are you sure you wanna leave this page?';
+
+    	}
+		return 'Are you sure you wanna leave this page?';
+	return;
+	};
+
+</script>
+</html>
