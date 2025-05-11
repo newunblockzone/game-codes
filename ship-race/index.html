@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Игра Прыжки с Рампы на Корабле - Vseigru.net</title>
+<link rel="stylesheet" href="/lib/game-loader/gameloader2020.css" />
+<script src="/lib/game-loader/gameloader2020.js"></script>
+<script src="/lib/game-loader/gameloader-helper.js"></script>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	var options = {
+		author: "Vseigru",
+		logo: "logo.jpg",
+		gameName: "Прыжки с Рампы на Корабле",
+		gameNameEu: "Ship Ramp Jumping",
+		gameUrl: "44170",
+		moreLink: (""),
+		allowFullscreen: true,
+		locale: "ru_RU",
+		loader: "unity2020",
+		loaderOptions: {
+			unityLoaderUrl: "Build/SRJ.loader.js",
+			unityConfigOptions: {
+				dataUrl: "Build/b20515cf2137dde4a677fb81b112f1cb.data",
+				frameworkUrl: "Build/4a13c6bbe1aa2601470481b6abaa3aef.js",
+			    codeUrl: "Build/7025018659624db55ab0371b016f2ad9.wasm",
+				streamingAssetsUrl: "StreamingAssets"
+           },
+                callback: () => {
+                window.unityInstance.Module._InitSDK();
+           }
+	   },
+    };
+	GameInit.load(options);	  
+</script>
+</body>
+</html>

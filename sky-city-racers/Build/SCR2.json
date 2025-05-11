@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Sky City Riders",
+"productVersion": "0.1",
+"dataUrl": "SCR2.data.unityweb",
+"wasmCodeUrl": "SCR2.wasm.code.unityweb",
+"wasmFrameworkUrl": "SCR2.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.16f1"
+}
